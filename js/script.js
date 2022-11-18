@@ -48,7 +48,29 @@ function generatePassword() {
     console.log("Special characters: " + verifySpecial);
   };
 
-  
+  //If user selects 'cancel' for all opitons
+  if(!verifyLower && !verifyUpper && !verifySpecial) {
+    userSelect = alert("Please choose password criteria");
+  } 
+  //If user selects to have all options
+  else if (verifyLower && verifyUpper && verifyNumber && verifySpecial) {
+    userSelect = lowerCase.concat(upperCase, numbers, special);
+    console.log(userSelect);
+  } 
+  //If user selects 3 out of 4 options
+  else if (verifyLower && verifyUpper && verifyNumber) {
+    userSelect = lowerCase.concat(upperCase, numbers);
+    console.log(userSelect);
+  } else if (verifyLower && verifyUpper && verifySpecial) {
+    userSelect = lowerCase.concat(upperCase, special);
+    console.log(userSelect);
+  } else if (verifyLower && verifyNumber && verifySpecial) {
+    userSelect = lowerCase.concat(numbers, special);
+    console.log(userSelect);
+  } else if (verifyUpper && verifyNumber && verifySpecial) {
+    userSelect = upperCase.concat(numbers, special);
+    console.log(userSelect);
+  }
 
   var pwDefault = [];
 
