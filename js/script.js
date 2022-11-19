@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var clickSelect = document.querySelector("#password");
 
 var pwLength;
 var verifyLower;
@@ -20,11 +21,20 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+}
 
+// Select all characters when generated password is clicked
+function clickSelectAll(){
+  document.querySelector("#password").focus();
+  document.querySelector("#password").select();
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Add event listener to focus on generated password
+clickSelect.addEventListener("focus", clickSelectAll);
+
 
 //Function to generate password
 function generatePassword() {
@@ -71,6 +81,41 @@ function generatePassword() {
     userSelect = upperCase.concat(numbers, special);
     console.log(userSelect);
   }
+  
+  //If user selects 2 out of 4 options
+  else if (verifyLower && verifyUpper) {
+    userSelect = lowerCase.concat(upperCase);
+    console.log(userSelect);
+  } else if (verifyLower && verifyNumber) {
+    userSelect = lowerCase.concat(numbers);
+    console.log(userSelect);
+  } else if (verifyLower && verifySpecial) {
+    userSelect = lowerCase.concat(special);
+    console.log(userSelect); 
+  } else if (verifyUpper && verifyNumber) {
+    userSelect = upperCase.concat(numbers);
+    console.log(userSelect);
+  } else if (verifyUpper && verifySpecial) {
+    userSelect = upperCase.concat(special);
+    console.log(userSelect);
+  } else if (verifyNumber && verifySpecial) {
+    userSelect = numbers.concat(special);
+    console.log(userSelect);
+  }
+  //If user selects 1 out of 4 options
+  else if (verifyLower) {
+    userSelect = lowerCase;
+    console.log(userSelect);
+  } else if (verifyUpper) {
+    userSelect = upperCase;
+    console.log(userSelect);
+  } else if (verifyNumber) {
+    userSelect = numbers;
+    console.log(userSelect);
+  } else if (verifySpecial) {
+    userSelect = special;
+    console.log(userSelect);
+  };
 
   var pwDefault = [];
 
