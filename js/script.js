@@ -40,22 +40,16 @@ clickSelect.addEventListener("focus", clickSelectAll);
 function generatePassword() {
   //Start user input
   pwLength = prompt("Please choose a character length between 8 and 128 for your password");
-  console.log("Password length: " + pwLength);
 
   if(!pwLength){
     alert("It is required to choose a length");
   } else if (pwLength < 8 || pwLength > 128) {
     pwLength = prompt("Uh Oh! Please choose between 8 and 128");
-    console.log("Password length: " + pwLength);
   } else {
     verifyLower = confirm("Would you like lower case letters?");
-    console.log("Lower case: " + verifyLower);
     verifyUpper = confirm("Would you like UPPER CASE letters?");
-    console.log("Upper case: " + verifyUpper);
     verifyNumber = confirm("Would you like to include numbers");
-    console.log("Number: " + verifyNumber);
     verifySpecial = confirm("Would you like special characters?");
-    console.log("Special characters: " + verifySpecial);
   };
 
   //If user selects 'cancel' for all opitons
@@ -65,56 +59,41 @@ function generatePassword() {
   //If user selects to have all options
   else if (verifyLower && verifyUpper && verifyNumber && verifySpecial) {
     userSelect = lowerCase.concat(upperCase, numbers, special);
-    console.log(userSelect);
-  } 
+    } 
   //If user selects 3 out of 4 options
   else if (verifyLower && verifyUpper && verifyNumber) {
     userSelect = lowerCase.concat(upperCase, numbers);
-    console.log(userSelect);
   } else if (verifyLower && verifyUpper && verifySpecial) {
     userSelect = lowerCase.concat(upperCase, special);
-    console.log(userSelect);
   } else if (verifyLower && verifyNumber && verifySpecial) {
     userSelect = lowerCase.concat(numbers, special);
-    console.log(userSelect);
   } else if (verifyUpper && verifyNumber && verifySpecial) {
     userSelect = upperCase.concat(numbers, special);
-    console.log(userSelect);
   }
   
   //If user selects 2 out of 4 options
   else if (verifyLower && verifyUpper) {
     userSelect = lowerCase.concat(upperCase);
-    console.log(userSelect);
   } else if (verifyLower && verifyNumber) {
     userSelect = lowerCase.concat(numbers);
-    console.log(userSelect);
   } else if (verifyLower && verifySpecial) {
     userSelect = lowerCase.concat(special);
-    console.log(userSelect); 
   } else if (verifyUpper && verifyNumber) {
     userSelect = upperCase.concat(numbers);
-    console.log(userSelect);
   } else if (verifyUpper && verifySpecial) {
     userSelect = upperCase.concat(special);
-    console.log(userSelect);
   } else if (verifyNumber && verifySpecial) {
     userSelect = numbers.concat(special);
-    console.log(userSelect);
   }
   //If user selects 1 out of 4 options
   else if (verifyLower) {
     userSelect = lowerCase;
-    console.log(userSelect);
   } else if (verifyUpper) {
     userSelect = upperCase;
-    console.log(userSelect);
   } else if (verifyNumber) {
     userSelect = numbers;
-    console.log(userSelect);
   } else if (verifySpecial) {
     userSelect = special;
-    console.log(userSelect);
   };
 
   var pwDefault = [];
@@ -122,11 +101,9 @@ function generatePassword() {
   for (var i = 0; i < pwLength; i++) {
     var allChoices = userSelect[Math.floor(Math.random() * userSelect.length)];
     pwDefault.push(allChoices);
-    console.log(allChoices);
   }
 
   var password = pwDefault.join("");
-  console.log("Your Password is: " + password);
   return password;
 
 
