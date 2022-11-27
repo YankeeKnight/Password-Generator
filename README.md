@@ -7,9 +7,11 @@ As an employee I need to randomly generate a password that meets certain criteri
 
 ## Screenshot
 
-![Screenshot of finished product](images/applicationScreenshot.png)
+![Screenshot of finished product](./assets/images/applicationScreenshot.png)
 
 ## Link to Deployed Application
+
+https://yankeeknight.github.io/challenge_11-28/
 
 ## Purpose/Usage
 
